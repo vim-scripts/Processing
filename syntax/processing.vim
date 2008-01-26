@@ -1,9 +1,8 @@
 " Vim syntax file
 " Language:	Processing
 " Maintainer:	Szabolcs Horvát <szhorvat at gmail dot com>
-" URL:		http://web.ift.uib.no/~szhorvat/processing.vim
-" Version:	1
-" Last Change:	2008-01-05
+" Version:	2
+" Last Change:	2008-01-26
 
 " This is for Processing 0135 BETA, based on keywords.txt
 
@@ -28,56 +27,69 @@ syn match   processingVariable	display "keyPressed"
 
 " KEYWORD2
 
-syn keyword processingFunction	contained abs acos alpha ambient ambientLight append
-syn keyword processingFunction	contained applyMatrix arc arraycopy asin atan atan2
-syn keyword processingFunction	contained background beginCamera beginRecord
-syn keyword processingFunction	contained beginShape bezier bezierDetail bezierPoint
-syn keyword processingFunction	contained bezierTangent bezierVertex binary blend
-syn keyword processingFunction	contained blendColor blue box brightness
-syn keyword processingFunction	contained camera ceil colorMode concat
-syn keyword processingFunction	contained constrain cos createFont createGraphics
-syn keyword processingFunction	contained createImage createWriter cursor curve
-syn keyword processingFunction	contained curveDetail curvePoint curveTightness
-syn keyword processingFunction	contained curveVertex day degrees delay
-syn keyword processingFunction	contained directionalLight dist draw ellipse
-syn keyword processingFunction	contained ellipseMode emissive endCamera endRecord
-syn keyword processingFunction	contained endShape exit exp expand fill filter 
-syn keyword processingFunction	contained floor frustum get green hex hint hour
-syn keyword processingFunction	contained hue image imageMode join 
-syn keyword processingFunction	contained keyReleased keyTyped lerp lerpColor
-syn keyword processingFunction	contained lightFalloff lights lightSpecular line link
-syn keyword processingFunction	contained loadBytes loadFont loadImage loadPixels
-syn keyword processingFunction	contained loadStrings log loop mag map match max millis
-syn keyword processingFunction	contained min minute modelX modelY modelZ month
-syn keyword processingFunction	contained mouseClicked mouseDragged mouseMoved
-syn keyword processingFunction	contained mouseReleased nf nfc nfp nfs
-syn keyword processingFunction	contained noCursor noFill noise noiseDetail noiseSeed
-syn keyword processingFunction	contained noLoop norm normal noSmooth noStroke noTint
-syn keyword processingFunction	contained open openStream ortho param perspective list
-syn keyword processingFunction	contained beginDraw endDraw blend copy
-syn keyword processingFunction	contained mask set point pointLight popMatrix pow
+syn keyword processingFunction	contained abs acos alpha ambient ambientLight
+syn keyword processingFunction	contained append applyMatrix arc arraycopy
+syn keyword processingFunction	contained asin atan atan2 background
+syn keyword processingFunction	contained beginCamera beginRecord beginShape
+syn keyword processingFunction	contained bezier bezierDetail bezierPoint
+syn keyword processingFunction	contained bezierTangent bezierVertex binary
+syn keyword processingFunction	contained blend blendColor blue box
+syn keyword processingFunction	contained brightness camera ceil colorMode
+syn keyword processingFunction	contained concat constrain cos createFont
+syn keyword processingFunction	contained createGraphics createImage
+syn keyword processingFunction	contained createWriter cursor curve
+syn keyword processingFunction	contained curveDetail curvePoint
+syn keyword processingFunction	contained curveTightness curveVertex day
+syn keyword processingFunction	contained degrees delay directionalLight dist
+syn keyword processingFunction	contained draw ellipse ellipseMode emissive
+syn keyword processingFunction	contained endCamera endRecord endShape exit
+syn keyword processingFunction	contained exp expand fill filter floor
+syn keyword processingFunction	contained frustum get green hex hint hour hue
+syn keyword processingFunction	contained image imageMode join keyReleased
+syn keyword processingFunction	contained keyTyped lerp lerpColor
+syn keyword processingFunction	contained lightFalloff lights lightSpecular
+syn keyword processingFunction	contained line link loadBytes loadFont
+syn keyword processingFunction	contained loadImage loadPixels loadStrings
+syn keyword processingFunction	contained log loop mag map match max millis
+syn keyword processingFunction	contained min minute modelX modelY modelZ
+syn keyword processingFunction	contained month mouseClicked mouseDragged
+syn keyword processingFunction	contained mouseMoved mouseReleased nf nfc nfp
+syn keyword processingFunction	contained nfs noCursor noFill noise
+syn keyword processingFunction	contained noiseDetail noiseSeed noLoop norm
+syn keyword processingFunction	contained normal noSmooth noStroke noTint
+syn keyword processingFunction	contained open openStream ortho param
+syn keyword processingFunction	contained perspective list beginDraw endDraw
+syn keyword processingFunction	contained blend copy mask set point
+syn keyword processingFunction	contained pointLight popMatrix pow
 syn keyword processingFunction	contained printCamera printMatrix
-syn keyword processingFunction	contained printProjection close flush print println
-syn keyword processingFunction	contained pushMatrix quad radians random randomSeed
-syn keyword processingFunction	contained rect rectMode red redraw resetMatrix reverse
-syn keyword processingFunction	contained rotate rotateX rotateY rotateZ round
+syn keyword processingFunction	contained printProjection close flush print
+syn keyword processingFunction	contained println pushMatrix quad radians
+syn keyword processingFunction	contained random randomSeed rect rectMode red
+syn keyword processingFunction	contained redraw resetMatrix reverse rotate
+syn keyword processingFunction	contained rotateX rotateY rotateZ round
 syn keyword processingFunction	contained saturation save saveBytes saveFrame
-syn keyword processingFunction	contained saveStrings scale screenX screenY screenZ
-syn keyword processingFunction	contained second setup shininess shorten sin size
-syn keyword processingFunction	contained smooth sort specular sphere sphereDetail
-syn keyword processingFunction	contained splice split splitTokens spotLight sq sqrt
-syn keyword processingFunction	contained status str charAt equals indexOf length
-syn keyword processingFunction	contained substring toLowerCase toUpperCase stroke
-syn keyword processingFunction	contained strokeCap strokeJoin strokeWeight subset
-syn keyword processingFunction	contained tan text textAlign textAscent 
-syn keyword processingFunction	contained textDescent textFont textLeading textMode
-syn keyword processingFunction	contained textSize texture textureMode textWidth tint
-syn keyword processingFunction	contained translate triangle trim unbinary unhex unhint
-syn keyword processingFunction	contained updatePixels vertex year
-syn keyword processingFunction	contained keyPressed mousePressed frameRate
+syn keyword processingFunction	contained saveStrings scale screenX screenY
+syn keyword processingFunction	contained screenZ second setup shininess
+syn keyword processingFunction	contained shorten sin size smooth sort
+syn keyword processingFunction	contained specular sphere sphereDetail splice
+syn keyword processingFunction	contained split splitTokens spotLight sq sqrt
+syn keyword processingFunction	contained status str charAt equals indexOf
+syn keyword processingFunction	contained length substring toLowerCase
+syn keyword processingFunction	contained toUpperCase stroke strokeCap
+syn keyword processingFunction	contained strokeJoin strokeWeight subset tan
+syn keyword processingFunction	contained text textAlign textAscent
+syn keyword processingFunction	contained textDescent textFont textLeading
+syn keyword processingFunction	contained textMode textSize texture
+syn keyword processingFunction	contained textureMode textWidth tint
+syn keyword processingFunction	contained translate triangle trim unbinary
+syn keyword processingFunction	contained unhex unhint updatePixels vertex
+syn keyword processingFunction	contained year keyPressed mousePressed
+syn keyword processingFunction	contained frameRate
 
 " highlight funtcion names only when they are followed by "("
-syn match   processingFunRegion	"\K\k*\s*(" contains=processingFunction
+" need to terminate match using \ze before ( to allow for 
+" unmatched bracket higlighting
+syn match   processingFunRegion	"\K\k*\s*\ze(" contains=processingFunction
 
 " KEYWORD1
 
@@ -144,12 +156,12 @@ syn keyword processingConstant	HALF_PI PI TWO_PI
 syn match   processingSpecError	display contained "\\."
 syn match   processingSpecial	display contained "\\[ntbrf0'\"\\]"
 syn match   processingSpecial	display contained "\\u\x\{4}"
+
 syn region  processingString	start=+"+ end=+"+ end='$' contains=processingSpecial,processingSpecError,@Spell
 
-" TODO: highlight char literal longer than one as error
 syn region  processingCharacter	start="'" end="'" end="$" contains=processingSpecial,processingSpecError
 
-syn keyword processingTodo	TODO FIXME XXX contained
+syn keyword processingTodo	TODO FIXME XXX NOTE contained
 
 syn region  processingComment	start="/\*" end="\*/" contains=processingTodo,@Spell
 syn region  processingCommentL	start="//" end="$" contains=processingTodo,@Spell
@@ -173,31 +185,44 @@ syn match   processingFloat	display "\<\d\+[eE][-+]\=\d\+"
 " prevent highlighting of predefined function names after a dot
 syn region  processingEmpty	start="\.\ze\K" end="\>"
 
-hi link processingKeyword	Keyword
-hi link processingRepeat	Repeat
-hi link processingConditional	Conditional
-hi link processingControlFlow	Keyword
-hi link processingException	Exception
-hi link processingLabel		Label
-hi link processingFunction	Function
-hi link processingOperator	Operator
-hi link processingType		Type
-hi link processingStorageClass	StorageClass
-hi link processingConstant 	Constant
-hi link processingVariable	Constant
-hi link processingBoolean	Boolean
-hi link processingNumber	Number
-hi link processingOctal		Number
-hi link processingOctalZero	PreProc
-hi link processingColor		Number
-hi link processingFloat		Float
-hi link processingString	String
-hi link processingCharacter	Character
-hi link processingSpecial	SpecialChar
-hi link processingSpecError	Error
-hi link processingComment	Comment
-hi link processingCommentL	Comment
-hi link processingTodo		Todo
+" Highlight unmatched brackets
+syn match   processingParErr	display ")"
+syn match   processingBraErr	display "\]"
+syn match   processingCBraErr	display "}"
+syn region  processingPar	transparent start="(" end=")" contains=TOP,processingParErr
+syn region  processingBra	transparent start="\[" end="\]" contains=TOP,processingBraErr
+syn region  processingCBra	transparent start="{" end="}" contains=TOP,processingCBraErr
+
+
+hi def link processingParErr		Error
+hi def link processingBraErr		Error
+hi def link processingCBraErr		Error
+
+hi def link processingKeyword		Keyword
+hi def link processingRepeat		Repeat
+hi def link processingConditional	Conditional
+hi def link processingControlFlow	Keyword
+hi def link processingException		Exception
+hi def link processingLabel		Label
+hi def link processingFunction		Function
+hi def link processingOperator		Operator
+hi def link processingType		Type
+hi def link processingStorageClass	StorageClass
+hi def link processingConstant 		Constant
+hi def link processingVariable		Constant
+hi def link processingBoolean		Boolean
+hi def link processingNumber		Number
+hi def link processingOctal		Number
+hi def link processingOctalZero		PreProc
+hi def link processingColor		Number
+hi def link processingFloat		Float
+hi def link processingString		String
+hi def link processingCharacter		Character
+hi def link processingSpecial		SpecialChar
+hi def link processingSpecError		Error
+hi def link processingComment		Comment
+hi def link processingCommentL		Comment
+hi def link processingTodo		Todo
 
 let b:current_syntax = "processing"
 
