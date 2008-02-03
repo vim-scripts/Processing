@@ -7,8 +7,8 @@ let b:did_ftplugin = 1
 
 " You may want to comment these
 setlocal expandtab
-setlocal tabstop=2
 setlocal shiftwidth=2
+setlocal tabstop=2
 
 
 setlocal cindent
@@ -16,7 +16,7 @@ setlocal cinkeys-=0#
 setlocal formatoptions-=t formatoptions+=croql
 setlocal suffixesadd=.pde
 
-let b:undo_ftplugin = "set cin< cink< fo< sua<"
+let b:undo_ftplugin = "set cin< cink< fo< sua< et< sw< ts<"
 
 
 if has("python") && exists("processing_doc_path")

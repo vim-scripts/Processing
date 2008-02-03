@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:	Processing
 " Maintainer:	Szabolcs Horvát <szhorvat at gmail dot com>
-" Version:	2
-" Last Change:	2008-01-26
+" Version:	3
+" Last Change:	2008-02-02
 
 " This is for Processing 0135 BETA, based on keywords.txt
 
@@ -154,8 +154,10 @@ syn keyword processingConstant	WORST LOW MEDIUM HIGH BEST LOSSLESS
 syn keyword processingConstant	HALF_PI PI TWO_PI
 
 syn match   processingSpecError	display contained "\\."
-syn match   processingSpecial	display contained "\\[ntbrf0'\"\\]"
+syn match   processingSpecial	display contained "\\[ntbrf'\"\\]"
 syn match   processingSpecial	display contained "\\u\x\{4}"
+syn match   processingSpecial	display contained "\\\o\{1,2}"
+syn match   processingSpecial	display contained "\\[0-3]\o\o"
 
 syn region  processingString	start=+"+ end=+"+ end='$' contains=processingSpecial,processingSpecError,@Spell
 
@@ -166,19 +168,23 @@ syn keyword processingTodo	TODO FIXME XXX NOTE contained
 syn region  processingComment	start="/\*" end="\*/" contains=processingTodo,@Spell
 syn region  processingCommentL	start="//" end="$" contains=processingTodo,@Spell
 
-syn sync ccomment processingComment
+if !exists("processing_minlines")
+  let processing_minlines = 20
+endif
+exec "syn sync ccomment processingComment minlines=" . processing_minlines
 
 syn match   processingNumber	display "\<\d\+[lL]\=\>"
 syn match   processingNumber	display "\<0x\x\+[lL]\=\>"
 syn match   processingOctal	display "\<0\o\+[lL]\=\>" contains=processingOctalZero
 syn match   processingOctalZero	display contained "\<0"
+" The trailing L doesn't make much sense for colors but the PDE accepts it ...
 syn match   processingColor	display "#\x\{6}[lL]\=\>"
 " float without . or exponent
 syn match   processingFloat	display "\<\d\+[fF]\>"
 " no \> because it might end in a .
-syn match   processingFloat	display "\<\d\+\.\d*\([eE][-+]\=\d\+\)\=[fF]\="
+syn match   processingFloat	display "\<\d\+\.\d*\%([eE][-+]\=\d\+\)\=[fF]\="
 " float starting with .
-syn match   processingFloat	display "\.\d\+\([eE][-+]\=\d\+\)\=[fF]\=\>"
+syn match   processingFloat	display "\.\d\+\%([eE][-+]\=\d\+\)\=[fF]\=\>"
 " float with explonent
 syn match   processingFloat	display "\<\d\+[eE][-+]\=\d\+"
 
