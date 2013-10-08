@@ -1,12 +1,39 @@
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=2115
 
-This is a syntax highlighting file and ftplugin for Processing.  
+## Vim Processing
 
-Processing is a system for programmatically creating images and animations.  See http://www.processing.org/ for more info.  The syntax highlighting file was made using lib/keywords.txt from the Processing 0135 BETA distribution.
+Originally authored by Szabolcs Horvát, and extended by Erich Heine and others (see below for a full list), this plugin exists to allow vim to replace the Processing IDE to develop sketches.
 
-Integration with the documentation:
+Primary development is now done by Erich Heine. The latest development version is found at https://github.com/sophacles/vim-processing
 
-If you have a Vim built with Python, the K key can be used to look up functions and variables in the documentation.  Note that words followed
-by an opening paren "(" are treated as functions, thus K pressed on frameRate() and frameRate goes to different documentation pages.
+### Features
 
-If there are highlighting errors while scrolling backwards, set the processing_minlines variable to a higher value.
+1. Syntax Highlighting for the Processing language: processing.vim will properly highlight sketches, based on the processing keywords.txt file. This includes processing functions and Java types and keywords as well.
+
+2. Documentation lookup -- pressing K in when over a keyword, type or function defined by processing will open a browser to the relevant documentation.(Currently this requires Python support compiled into Vim)
+
+3. Integrates with Vim's compiler support. Sketches can be run directly from Vim using the :make command. They are run via the processing-java command. This tool is used to run sketches outside of the Processing editor, and is supplied with Processing itself. Make sure processing-java is in your PATH before trying to run it from vim-processing.
+
+(MacOSX users will need to install the processing-java command from the Processing IDE before using this functionality)
+
+4. Folding can be enabled by defining "processing_fold"
+    let processing_fold = 1
+
+For more usage information see :help processing-intro
+
+
+### Contributors
+
+The full list of contributors to this project:
+
+*  Erich Heine (@sophacles on GitHub)
+*  Guy John (@rumblesan)
+*  Richard Gray (@vortura)
+*  Crazy Master (@crazymaster)
+*  Vítor Galvão (@vitorgalvao)
+*  Szabolcs Horvát (@szhorvat)
+
+### License
+
+Copyright (c) the contributors to the project. Distributed under the same terms as Vim itself.  See :help license
+
